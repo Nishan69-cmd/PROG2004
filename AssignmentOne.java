@@ -17,5 +17,20 @@ public class AssignmentOne {
                 );
 
         System.out.println(gp1);
+        String[] nurseDays = {
+        "Tuesday",
+        "Thursday"
+
+        };
+        Nurse nurse1 = new Nurse(
+                201,
+                "Nurse Emma",
+                nurseDays,
+                "Emergency Ward"
+        );
+
+        System.out.println();
+        System.out.println(nurse1);
+        
     }
 }

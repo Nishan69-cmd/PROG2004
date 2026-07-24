@@ -20,7 +20,6 @@ public class AssignmentOne {
         String[] nurseDays = {
         "Tuesday",
         "Thursday"
-
         };
         Nurse nurse1 = new Nurse(
                 201,
@@ -31,6 +30,34 @@ public class AssignmentOne {
 
         System.out.println();
         System.out.println(nurse1);
-        
+        String[] specialistDays = {
+        "Monday",
+        "Tuesday"
+        };
+
+        Specialist specialist1 = new Specialist(
+                301,
+                "Dr Brown",
+                specialistDays,
+                "Cardiology"
+        );
+
+        System.out.println();
+        System.out.println(specialist1);
+        String[] dietitianDays = {
+        "Wednesday",
+        "Friday"
+        };
+
+        Dietitian dietitian1 = new Dietitian(
+                401,
+                "Ms Taylor",
+                dietitianDays,
+                "General Nutrition"
+        );
+
+        System.out.println();
+        System.out.println(dietitian1);
+
     }
 }

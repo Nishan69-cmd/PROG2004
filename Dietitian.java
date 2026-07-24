@@ -27,3 +27,4 @@ public class Dietitian extends HealthProfessional {
                 + "\nNutrition Area: " + nutritionArea;
     }
 }
+

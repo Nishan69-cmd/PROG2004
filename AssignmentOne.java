@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class AssignmentOne {
 
     public static void main(String[] args) {
@@ -15,6 +16,30 @@ public class AssignmentOne {
                         workingDays,
                         "Room 1"
                 );
+        String[] gp2Days = {
+        "Tuesday",
+        "Thursday"
+        };
+
+        GeneralPracticitioner gp2 = new GeneralPracticitioner(
+                102,
+                "Dr Jones",
+                gp2Days,
+                "Room 2"
+        );
+
+        String[] gp3Days = {
+                "Monday",
+                "Thursday",
+                "Friday"
+        };
+
+        GeneralPracticitioner gp3 = new GeneralPracticitioner(
+                103,
+                "Dr Wilson",
+                gp3Days,
+                "Room 3"
+        );
 
         System.out.println(gp1);
         String[] nurseDays = {
@@ -58,6 +83,22 @@ public class AssignmentOne {
 
         System.out.println();
         System.out.println(dietitian1);
+        ArrayList<HealthProfessional> professionals =
+        new ArrayList<HealthProfessional>();
+
+        professionals.add(gp1);
+        professionals.add(gp2);
+        professionals.add(gp3);
+        professionals.add(nurse1);
+        professionals.add(specialist1);
+        professionals.add(dietitian1);
+        System.out.println();
+        System.out.println("ALL HEALTH PROFESSIONALS");
+
+        for (HealthProfessional professional : professionals) {
+        System.out.println();
+        System.out.println(professional);
+        }
 
     }
 }

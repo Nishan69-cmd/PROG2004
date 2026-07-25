@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.Collections;
 public class AppointmentManager {
     private ArrayList<Appointment> appointments;
 
@@ -131,6 +131,21 @@ public class AppointmentManager {
             System.out.println(
                     "Warning: no appointments found for this patient."
             );
+        }
+        
+    }
+    public void displaySortedAppointments() {
+
+        if (appointments.size() == 0) {
+            System.out.println("No appointments found.");
+            return;
+        }
+
+        Collections.sort(appointments);
+
+        for (Appointment appointment : appointments) {
+            System.out.println();
+            System.out.println(appointment);
         }
     }
 }

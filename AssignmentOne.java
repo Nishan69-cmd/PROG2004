@@ -99,6 +99,24 @@ public class AssignmentOne {
         System.out.println();
         System.out.println(professional);
         }
+        Patient patient1 = new Patient(
+        "John Smith",
+        "0412345678"
+        );
 
+        Appointment appointment1 = new Appointment(
+                patient1,
+                gp1,
+                "09:30"
+        );
+
+        System.out.println();
+        System.out.println("APPOINTMENT DETAILS");
+        System.out.println(appointment1);
+        
+        AppointmentManager manager = new AppointmentManager();
+
+        manager.addAppointment(appointment1);
+        manager.displayAppointments();
     }
 }

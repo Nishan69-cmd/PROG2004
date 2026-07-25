@@ -1,15 +1,12 @@
 import java.util.ArrayList;
 
 public class AppointmentManager {
-
     private ArrayList<Appointment> appointments;
 
     public AppointmentManager() {
         appointments = new ArrayList<Appointment>();
     }
-
     private boolean isValidTime(String appointmentTime) {
-
         String[] validTimes = {
                 "08:00", "08:30",
                 "09:00", "09:30",
@@ -21,20 +18,26 @@ public class AppointmentManager {
                 "15:00", "15:30",
                 "16:00"
         };
-
         for (String time : validTimes) {
             if (time.equals(appointmentTime)) {
                 return true;
             }
         }
-
         return false;
     }
-
     public boolean addAppointment(Appointment appointment) {
 
         if (appointment == null) {
             System.out.println("Warning: appointment is missing.");
+            return false;
+        }
+
+        if (appointment.getPatient() == null
+                || appointment.getHealthProfessional() == null
+                || appointment.getAppointmentTime() == null
+                || appointment.getAppointmentTime().equals("")) {
+
+            System.out.println("Warning: appointment details are incomplete.");
             return false;
         }
 
@@ -81,6 +84,53 @@ public class AppointmentManager {
         for (Appointment appointment : appointments) {
             System.out.println();
             System.out.println(appointment);
+        }
+    }
+
+    public void displayByProfessionalID(int professionalID) {
+
+        boolean found = false;
+
+        for (Appointment appointment : appointments) {
+
+            if (appointment
+                    .getHealthProfessional()
+                    .getProfessionalID() == professionalID) {
+
+                System.out.println();
+                System.out.println(appointment);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println(
+                    "Warning: no appointments found for this professional."
+            );
+        }
+    }
+
+    public void displayByPatientMobile(String mobileNumber) {
+
+        boolean found = false;
+
+        for (Appointment appointment : appointments) {
+
+            if (appointment
+                    .getPatient()
+                    .getMobileNumber()
+                    .equals(mobileNumber)) {
+
+                System.out.println();
+                System.out.println(appointment);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println(
+                    "Warning: no appointments found for this patient."
+            );
         }
     }
 }

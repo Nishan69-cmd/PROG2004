@@ -1,7 +1,8 @@
+//demonstrates the health appointment management system
 import java.util.ArrayList;
 
 public class AssignmentOne {
-
+//main method used to create and test objects
     public static void main(String[] args) {
 
         String[] workingDays = {
@@ -9,7 +10,7 @@ public class AssignmentOne {
                 "Wednesday",
                 "Friday"
         };
-
+//creates general practitioner objects
         GeneralPracticitioner gp1 =
                 new GeneralPracticitioner(
                         101,
@@ -44,7 +45,7 @@ public class AssignmentOne {
                         gp3Days,
                         "Room 3"
                 );
-
+//creates a nurse object
         String[] nurseDays = {
                 "Tuesday",
                 "Thursday"
@@ -56,7 +57,7 @@ public class AssignmentOne {
                 nurseDays,
                 "Emergency Ward"
         );
-
+//creates a specialist object
         String[] specialistDays = {
                 "Monday",
                 "Tuesday"
@@ -68,7 +69,7 @@ public class AssignmentOne {
                 specialistDays,
                 "Cardiology"
         );
-
+//creates a dietitian object
         String[] dietitianDays = {
                 "Wednesday",
                 "Friday"
@@ -80,7 +81,7 @@ public class AssignmentOne {
                 dietitianDays,
                 "General Nutrition"
         );
-
+//stores different health professionals in one collection
         ArrayList<HealthProfessional> professionals =
                 new ArrayList<HealthProfessional>();
 
@@ -90,14 +91,14 @@ public class AssignmentOne {
         professionals.add(nurse1);
         professionals.add(specialist1);
         professionals.add(dietitian1);
-
+//displays all health professional details
         System.out.println("ALL HEALTH PROFESSIONALS");
 
         for (HealthProfessional professional : professionals) {
             System.out.println();
             System.out.println(professional);
         }
-
+//creates patient objects
         Patient patient1 = new Patient(
                 "John Smith",
                 "0412345678"
@@ -112,7 +113,7 @@ public class AssignmentOne {
                 "Michael Brown",
                 "0434567890"
         );
-
+//creates valid appointment objects
         Appointment appointment1 = new Appointment(
                 patient1,
                 gp1,
@@ -130,21 +131,21 @@ public class AssignmentOne {
                 specialist1,
                 "11:00"
         );
-
+//creates the appointment manager
         AppointmentManager manager =
                 new AppointmentManager();
-
+//adds valid appointments to the collection
         manager.addAppointment(appointment1);
         manager.addAppointment(appointment2);
         manager.addAppointment(appointment3);
-
+//displays all appointments
         System.out.println();
         System.out.println("ALL APPOINTMENTS");
         manager.displayAppointments();
-
+//tests double booking validation
         System.out.println();
         System.out.println("DOUBLE BOOKING TEST");
-
+//tests invalid appointment time
         Appointment duplicateAppointment =
                 new Appointment(
                         patient3,
@@ -153,7 +154,7 @@ public class AssignmentOne {
                 );
 
         manager.addAppointment(duplicateAppointment);
-
+//tests searching by professional ID
         System.out.println();
         System.out.println("INVALID TIME TEST");
 
@@ -169,19 +170,19 @@ public class AssignmentOne {
         System.out.println();
         System.out.println("SEARCH BY PROFESSIONAL ID");
         manager.displayByProfessionalID(101);
-
+//tests searching by patient mobile number
         System.out.println();
         System.out.println("SEARCH BY PATIENT MOBILE");
         manager.displayByPatientMobile("0412345678");
-
+//tests searching for a professional that does not exist
         System.out.println();
         System.out.println("SEARCH FOR NON-EXISTING PROFESSIONAL");
         manager.displayByProfessionalID(999);
-
+//tests sorting appointments by time
         System.out.println();
         System.out.println("APPOINTMENTS SORTED BY TIME");
         manager.displaySortedAppointments();
-
+//creates another professional with the same professional ID
         GeneralPracticitioner anotherGP =
                 new GeneralPracticitioner(
                         101,
@@ -189,13 +190,13 @@ public class AssignmentOne {
                         workingDays,
                         "Room 5"
                 );
-
+//tests professional equality using professional ID
         System.out.println();
         System.out.println(
                 "Same professional: "
                         + gp1.equals(anotherGP)
         );
-
+//tests cancellation using professional ID and time
         System.out.println();
         System.out.println("CANCEL APPOINTMENT");
 
@@ -205,7 +206,7 @@ public class AssignmentOne {
         );
 
         manager.displayAppointments();
-
+//tests cancellation using patient mobile number
         System.out.println();
         System.out.println("CANCEL BY PATIENT MOBILE");
 
@@ -214,7 +215,7 @@ public class AssignmentOne {
         );
 
         manager.displayAppointments();
-
+//tests cancellation for an appointment that does not exist
         System.out.println();
         System.out.println("CANCEL NON-EXISTING APPOINTMENT");
 
@@ -230,14 +231,15 @@ public class AssignmentOne {
                 999,
                 "10:00"
         );
+//tests searching for a patient that does not exist
         System.out.println();
-System.out.println("SEARCH FOR NON-EXISTING PATIENT");
+        System.out.println("SEARCH FOR NON-EXISTING PATIENT");
 
-manager.displayByPatientMobile("0400000000");
+        manager.displayByPatientMobile("0400000000");
+//tests cancellation using a mobile number that does not exist
+        System.out.println();
+        System.out.println("CANCEL NON-EXISTING PATIENT APPOINTMENT");
 
-System.out.println();
-System.out.println("CANCEL NON-EXISTING PATIENT APPOINTMENT");
-
-manager.cancelByPatientMobile("0400000000");
+        manager.cancelByPatientMobile("0400000000");
     }
 }

@@ -5,23 +5,13 @@ public class Appointment implements Comparable<Appointment> {
     private String appointmentTime;
 
     public Appointment(
-        Patient patient,
-        HealthProfessional healthProfessional,
-        String appointmentTime) {
+            Patient patient,
+            HealthProfessional healthProfessional,
+            String appointmentTime) {
 
-    if (patient == null
-            || healthProfessional == null
-            || appointmentTime == null
-            || appointmentTime.equals("")) {
-
-        throw new IllegalArgumentException(
-                "Appointment details cannot be empty."
-        );
-    }
-
-    this.patient = patient;
-    this.healthProfessional = healthProfessional;
-    this.appointmentTime = appointmentTime;
+        this.patient = patient;
+        this.healthProfessional = healthProfessional;
+        this.appointmentTime = appointmentTime;
     }
 
     public Patient getPatient() {

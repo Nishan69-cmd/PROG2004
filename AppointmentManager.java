@@ -170,29 +170,8 @@ public class AppointmentManager {
         System.out.println("Warning: appointment not found.");
         return false;
     }
-    public boolean cancelByProfessionalIDAndTime(
-        int professionalID,
-        String appointmentTime) {
-
-        for (int i = 0; i < appointments.size(); i++) {
-
-            Appointment appointment = appointments.get(i);
-
-            if (appointment.getHealthProfessional()
-                            .getProfessionalID() == professionalID
-                    && appointment.getAppointmentTime()
-                            .equals(appointmentTime)) {
-
-                appointments.remove(i);
-                System.out.println("Appointment cancelled.");
-                return true;
-            }
-        }
-
-        System.out.println("Warning: appointment not found.");
-        return false;
-    }
-    public boolean cancelByPatientMobile(String mobileNumber) {
+    
+   public boolean cancelByPatientMobile(String mobileNumber) {
 
         for (int i = 0; i < appointments.size(); i++) {
 
@@ -210,5 +189,5 @@ public class AppointmentManager {
 
         System.out.println("Warning: appointment not found.");
         return false;
-    }
+    }   
 }

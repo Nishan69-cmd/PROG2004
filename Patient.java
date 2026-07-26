@@ -1,3 +1,4 @@
+//represents patients
 public class Patient {
 
     private String name;
@@ -21,3 +22,4 @@ public class Patient {
         return "Patient Name: " + name
                 + "\nMobile Number: " + mobileNumber;
     }
+}
